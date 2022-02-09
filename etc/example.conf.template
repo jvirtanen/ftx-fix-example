@@ -1,0 +1,11 @@
+ftx {
+  fix {
+    address = localhost
+    port    = 4363
+  }
+
+  api {
+    key    = "<none>"
+    secret = "<none>"
+  }
+}
