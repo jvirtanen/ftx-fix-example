@@ -1,6 +1,6 @@
 ftx {
   fix {
-    address = localhost
+    address = fix.ftx.com
     port    = 4363
   }
 
