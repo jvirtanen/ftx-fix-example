@@ -38,7 +38,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 import javax.net.ssl.SSLContext;
 import tlschannel.ClientTlsChannel;
-import tlschannel.TlsChannel;
 
 class Example {
 
@@ -64,13 +63,12 @@ class Example {
         var key    = config.getString("ftx.api.key");
         var secret = config.getString("ftx.api.secret");
 
-        SocketChannel socketChannel = SocketChannel.open();
+        var socketChannel = SocketChannel.open();
 
         socketChannel.connect(new InetSocketAddress(address, port));
 
-        SSLContext sslContext = SSLContext.getDefault();
-
-        TlsChannel tlsChannel = ClientTlsChannel.newBuilder(socketChannel, sslContext).build();
+        var sslContext = SSLContext.getDefault();
+        var tlsChannel = ClientTlsChannel.newBuilder(socketChannel, sslContext).build();
 
         var builder = new FIXConfig.Builder()
             .setVersion(FIXVersion.FIX_4_2)
